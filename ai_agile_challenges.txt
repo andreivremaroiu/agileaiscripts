@@ -1,0 +1,417 @@
+1. Resistance to change
+
+2. reduced iq
+
+3. No
+
+4. GDPR, data locality issues
+
+5. No
+
+6. 1. Alignment with Agile Iteration Cycles
+AI and machine learning projects often require significant time for data gathering, model training, and validation. This can be at odds with Agile’s preference for short, iterative sprints delivering shippable increments. Teams may struggle to break down complex AI tasks into small enough pieces for each sprint.
+
+2. Data Quality and Availability
+AI’s effectiveness hinges on high-quality, relevant data. In Agile, new features and user stories are prioritized for delivery, but if the required data isn’t ready, bottlenecks occur. Cross-functional communication and early data pipeline development become crucial.
+
+3. Cross-Functional Team Skills
+Agile teams are ideally cross-functional, but not every team member may have AI/ML expertise. Skill gaps lead to reliance on a few specialists, slowing progress and impacting Agile’s collaboration promise.
+
+4. Uncertain Outcomes
+AI projects often come with inherent uncertainty: sometimes, even with the best efforts, models don’t deliver the expected results. This unpredictability challenges Agile planning, estimation, and demo expectations.
+
+5. Integration and Deployment
+AI models require special handling in deployment and monitoring compared to regular software. Agile teams may need to adjust DevOps practices (MLOps) to monitor model drift, automate retraining, and ensure seamless releases.
+
+7. -
+
+8. No.
+
+9. Lots of potential synergies discovered during implementation, most if them verry dynamic with high switching rate
+
+10. No
+
+11. I have not faced any issues
+
+12. -
+
+13. -
+
+14. -
+
+15. No
+
+16. No
+
+17. Not applicable.
+
+18. Da , mai multe erori
+
+19. hard to develop new networks
+
+20. -
+
+21. No, I don't think so
+
+22. yes, implementing this in integration with existing processes is a real challenge
+
+23. I don't use Agile yet.
+
+24. I will just start to implement
+
+25. no
+
+26. lack of information on some topics
+
+27. yes, the lack of learning for some topics plus some code bugs that needed to be fixed by the developer
+
+28. lack of experts
+
+29. Integrating AI tools with existing workflows is difficult.
+
+30. It’s hard to align agile flexibility with rigid AI model structures.
+
+31. Resistance to change from leadership
+
+32. Team lacks the technical skills to fully utilize AI
+
+33. Data quality issues affect AI model reliability
+
+34. Data quality issues affect AI model reliability
+
+35. Integrating AI tools with existing workflows is difficult.
+
+36. Data quality issues affect AI model reliability
+
+37. Data quality issues affect AI model reliability
+
+38. Resistance to change from leadership
+
+39. : It’s hard to align agile flexibility with rigid AI model structures.
+
+40. Team lacks the technical skills to fully utilize AI.
+
+41. Data quality issues affect AI model reliability
+
+42. It’s hard to align agile flexibility with rigid AI model structures.
+
+43. Data quality issues affect AI model reliability.
+
+44. It’s hard to align agile flexibility with rigid AI model structures.
+
+45. Resistance to change from leadership
+
+46. Team lacks the technical skills to fully utilize AI.
+
+47. It’s hard to align agile flexibility with rigid AI model structures.
+
+48. Team lacks the technical skills to fully utilize AI
+
+49. Data quality issues affect AI model reliability
+
+50. Integrating AI tools with existing workflows is difficult.
+
+51. Resistance to change from leadership
+
+52. Data quality issues affect AI model reliability.
+
+53. Team lacks the technical skills to fully utilize AI.
+
+54. Integrating AI tools with existing workflows is difficult.
+
+55. Integrating AI tools with existing workflows is difficult.
+
+56. Data quality issues affect AI model reliability.
+
+57. Data quality issues affect AI model reliability.
+
+58. It's hard to align agile flexibility with ridgid AI model strucures.
+
+59. Integrating AI tools with existing workflows is difficult.
+
+60. It’s hard to align agile flexibility with rigid AI model structures.
+
+61. Team lacks the technical skills to fully utilize AI.
+
+62. Data quality issues affect AI model reliability
+
+63. Resistance to change from leadership.
+
+64. Data quality issues affect AI model capabilities.
+
+65. Integrating AI tools with existing workflows is difficult
+
+66. : It’s hard to align agile flexibility with rigid AI model structures.
+
+67. Team lacks the technical skills to fully utilize AI.
+
+68. Data quality issues affect AI model reliability.
+
+69. Data quality issues affect AI model reliability.
+
+70. Team lacks the technical skills to fully utilize AI.
+
+71. Integrating AI tools with existing workflows is difficult.
+
+72. It’s hard to align agile flexibility with rigid AI model structures.
+
+73. eam lacks the technical skills to fully utilize AI.
+
+74. Data quality issues affect AI model reliability.
+
+75. Resistance to change from leadership.
+
+76. Data quality issues affect AI model reliability.
+
+77. Integrating AI tools with existing workflows is difficult.
+
+78. Resistance to change from leadership.
+
+79. Resistance to change from leadership.
+
+80. Integrating AI tools with existing workflows is difficult
+
+81. Data quality issues affect AI model reliability
+
+82. Resistance to change from leadership.
+
+83. : It’s hard to align agile flexibility with rigid AI model structures.
+
+84. : It’s hard to align agile flexibility with rigid AI model structures.
+
+85. Team lacks the technical skills to fully utilize AI.
+
+86. : Team lacks the technical skills to fully utilize AI.
+
+87. : It’s hard to align agile flexibility with rigid AI model structures.
+
+88. Data quality issues affect AI model reliability.
+
+89. Resistance to change from leadership.
+
+90. Data quality issues affect AI model reliability
+
+91. Resistance to change from leadership.
+
+92. It’s hard to align agile flexibility with rigid AI model structures.
+
+93. It’s hard to align agile flexibility with rigid AI model structures.
+
+94. Team lacks the technical skills to fully utilize AI.
+
+95. Integrating AI tools with existing workflows is difficult.
+
+96. Team lacks the technical skills to fully utilize AI.
+
+97. Integrating AI tools with existing workflows is difficult.
+
+98. Data quality issues affect AI model reliability.
+
+99. Resistance to change from leadership.
+
+100. Team lacks the technical skills to fully utilize AI
+
+101. Integrating AI tools with existing workflows is difficult.
+
+102. Integrating AI tools with existing workflows is difficult.
+
+103. It’s hard to align agile flexibility with rigid AI model structures.
+
+104. Data quality issues affect AI model reliability.
+
+105. It’s hard to align agile flexibility with rigid AI model structures.
+
+106. Resistance to change from leadership
+
+107. It’s hard to align agile flexibility with rigid AI model structures.
+
+108. Team lacks the technical skills to fully utilize AI.
+
+109. Integrating AI tools with existing workflows is difficult.
+
+110. It’s hard to align agile flexibility with rigid AI model structures.
+
+111. It’s hard to align agile flexibility with rigid AI model structures.
+
+112. Resistance to change from leadership
+
+113. Resistance to change from leadership.
+
+114. Team lacks the technical skills to fully utilize AI.
+
+115. Resistance to change from leadership.
+
+116. It’s hard to align agile flexibility with rigid AI model structures.
+
+117. Team lacks the technical skills to fully utilize AI.
+
+118. Integrating AI tools with existing workflows is difficult.
+
+119. Team lacks the technical skills to fully utilize AI.
+
+120. Yes, AI workflows don’t always fit into 2-week sprints.
+
+121. Hard to write clear user stories or acceptance criteria for AI models.
+
+122. Data quality issues often delay model training.
+
+123. Team members may lack AI understanding, causing misalignment.
+
+124. AI projects often require longer experimentation cycles, conflicting with Agile’s fast delivery focus.
+
+125. Team lacks the technical skills to fully utilize AI
+
+126. Data quality issues affect AI model reliability
+
+127. Resistance to change from leadership.
+
+128. Data quality issues affect AI model reliability.
+
+129. It’s hard to align agile flexibility with rigid AI model structures.
+
+130. Resistance to change from leadership.
+
+131. Integrating AI tools with existing workflows is difficult.
+
+132. Integrating AI tools with existing workflows is difficult.
+
+133. It’s hard to align agile flexibility with rigid AI model structures.
+
+134. Data quality issues affect AI model reliability.
+
+135. Team lacks the technical skills to fully utilize AI.
+
+136. Integrating AI tools with existing workflows is difficult.
+
+137. Resistance to change from leadership.
+
+138. Team lacks the technical skills to fully utilize AI.
+
+139. : It’s hard to align agile flexibility with rigid AI model structures.
+
+140. : It’s hard to align agile flexibility with rigid AI model structures.
+
+141. Data quality issues affect AI model reliability.
+
+142. Team lacks the technical skills to fully utilize AI.
+
+143. Integrating AI tools with existing workflows is difficult
+
+144. Data quality issues affect AI model reliability.
+
+145. It’s hard to align agile flexibility with rigid AI model structures.
+
+146. Resistance to change from leadership
+
+147. It’s hard to align agile flexibility with rigid AI model structures.
+
+148. Integrating AI tools with existing workflows is difficult.
+
+149. Data quality issues affect AI model reliability.
+
+150. Data quality issues affect AI model reliability
+
+151. Data quality issues affect AI model reliability
+
+152. Data quality issues affect AI model reliability
+
+153. Data quality issues affect AI model reliability.
+
+154. Data quality issues affect AI model reliability.
+
+155. Integrating AI tools with existing workflows is difficult.
+
+156. Data quality issues affect AI model reliability.
+
+157. Team lacks the technical skills to fully utilize AI
+
+158. Data quality issues affect AI model reliability.
+
+159. Team lacks the technical skills to fully utilize AI
+
+160. Integrating AI tools with existing workflows is difficult
+
+161. Team lacks the technical skills to fully utilize AI.
+
+162. Integrating AI tools with existing workflows is difficult.
+
+163. Team lacks the technical skills to fully utilize AI.
+
+164. Integrating AI tools with existing workflows is difficult.
+
+165. It’s hard to align agile flexibility with rigid AI model structures.
+
+166. Data quality issues affect AI model reliability.
+
+167. It’s hard to align agile flexibility with rigid AI model structures.
+
+168. Resistance to change from leadership.
+
+169. : It’s hard to align agile flexibility with rigid AI model structures.
+
+170. Team lacks the technical skills to fully utilize AI.
+
+171. Integrating AI tools with existing workflows is difficult
+
+172. It’s hard to align agile flexibility with rigid AI model structures.
+
+173. It’s hard to align agile flexibility with rigid AI model structures.
+
+174. Resistance to change from leadership.
+
+175. Resistance to change from leadership
+
+176. Team lacks the technical skills to fully utilize AI.
+
+177. Resistance to change from leadership
+
+178. It’s hard to align agile flexibility with rigid AI model structures.
+
+179. Team lacks the technical skills to fully utilize AI
+
+180. Integrating AI tools with existing workflows is difficult.
+
+181. Team lacks the technical skills to fully utilize AI.
+
+182. Team lacks the technical skills to fully utilize AI.
+
+183. Data quality issues affect AI model reliability.
+
+184. Resistance to change from leadership.
+
+185. Team lacks the technical skills to fully utilize AI
+
+186. Resistance to change from leadership
+
+187. Team lacks the technical skills to fully utilize AI.
+
+188. It’s hard to align agile flexibility with rigid AI model structures.
+
+189. It’s hard to align agile flexibility with rigid AI model structures.
+
+190. Resistance to change from leadership.
+
+191. It’s hard to align agile flexibility with rigid AI model structures.
+
+192. : Integrating AI tools with existing workflows is difficult.
+
+193. It’s hard to align agile flexibility with rigid AI model structures.
+
+194. Data quality issues affect AI model reliability
+
+195. : It’s hard to align agile flexibility with rigid AI model structures.
+
+196. It’s hard to align agile flexibility with rigid AI model structures.
+
+197. It’s hard to align agile flexibility with rigid AI model structures.
+
+198. Team lacks the technical skills to fully utilize AI
+
+199. Integrating AI tools with existing workflows is difficult
+
+200. Resistance to change from leadership.
+
+201. Resistance to change from leadership.
+
+202. It’s hard to align agile flexibility with rigid AI model structures.
+

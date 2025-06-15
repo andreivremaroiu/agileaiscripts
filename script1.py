@@ -122,13 +122,27 @@ def plot_wordcloud(series, title):
     plt.tight_layout()
     plt.show()
 
+# === Step 7: Save Open-ended Responses to Text Files ===
+
+# Define a helper to save responses to .txt
+def save_responses_to_txt(series, filename):
+    responses = series.dropna().astype(str).str.strip()
+    if responses.empty:
+        print(f"⚠️ No responses found for: {filename}")
+        return
+    with open(filename, 'w', encoding='utf-8') as f:
+        for i, response in enumerate(responses, 1):
+            f.write(f"{i}. {response}\n\n")
+    print(f"✅ Saved {len(responses)} responses to '{filename}'")
+
 benefit_col = 'In your opinion, what is the greatest benefit of using AI in strategy development?'
 if benefit_col in df.columns:
-    plot_wordcloud(df[benefit_col], 'Greatest Benefit of AI in Strategy Development')
+    save_responses_to_txt(df[benefit_col], 'ai_benefits.txt')
 
 challenges_col = 'Have you encountered any challenges when implementing AI into your Agile processes? Please describe.'
 if challenges_col in df.columns:
-    plot_wordcloud(df[challenges_col], 'Challenges in Implementing AI into Agile')
+    save_responses_to_txt(df[challenges_col], 'ai_agile_challenges.txt')
+
 
 # === Step 8: Cross-tab — AI Usage vs. Company Age ===
 if ai_usage_col in df.columns and age_col in df.columns:
