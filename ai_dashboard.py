@@ -25,21 +25,33 @@ st.markdown("Explore insights from survey data on AI, Agile, and company strateg
 # === Sidebar Filters & Navigation ===
 st.sidebar.header("🔎 Filters")
 company_size_col = 'What is the size of your company?'
-company_sizes = df[company_size_col].dropna().unique().tolist() if company_size_col in df else []
-selected_size = st.sidebar.selectbox("Select Company Size:", options=["All"] + company_sizes)
+role_col = 'What is your current role in the company?'
+focus_col = 'What is the main focus of your company?'
 
-# New: Sidebar menu for sections
+company_sizes = df[company_size_col].dropna().unique().tolist() if company_size_col in df else []
+roles = df[role_col].dropna().unique().tolist() if role_col in df else []
+focus_areas = df[focus_col].dropna().unique().tolist() if focus_col in df else []
+
+selected_size = st.sidebar.selectbox("Select Company Size:", options=["All"] + sorted(company_sizes))
+selected_role = st.sidebar.selectbox("Select Role:", options=["All"] + sorted(roles))
+selected_focus = st.sidebar.selectbox("Select Company Focus:", options=["All"] + sorted(focus_areas))
+
+# Sidebar menu for navigation
 page = st.sidebar.radio(
     "Navigate",
     options=["Charts", "Benefits", "Challenges", "Raw Data"]
 )
 
+# === Apply Filters ===
 filtered_df = df.copy()
 if selected_size != "All":
     filtered_df = filtered_df[filtered_df[company_size_col] == selected_size]
+if selected_role != "All":
+    filtered_df = filtered_df[filtered_df[role_col] == selected_role]
+if selected_focus != "All":
+    filtered_df = filtered_df[filtered_df[focus_col] == selected_focus]
 
 # === Show content based on sidebar selection ===
-
 if page == "Charts":
     # AI Usage in Strategic Planning
     ai_usage_col = 'To what extent is AI currently used in your company’s strategic planning?'
@@ -85,6 +97,47 @@ if page == "Charts":
             text=tech_counts.values
         )
         st.plotly_chart(fig3, use_container_width=True)
+
+    # === NEW: Role Distribution Histogram ===
+    if role_col in filtered_df.columns:
+        st.subheader("🔍 Role Distribution in Companies")
+        role_counts = filtered_df[role_col].dropna().value_counts().sort_values(ascending=False)
+        fig_role = px.histogram(
+            filtered_df,
+            x=role_col,
+            category_orders={role_col: role_counts.index.tolist()},
+            title="Role Distribution",
+            labels={role_col: "Role"},
+        )
+        fig_role.update_layout(xaxis_title="Role", yaxis_title="Count", xaxis_tickangle=-45)
+        st.plotly_chart(fig_role, use_container_width=True)
+
+    # === NEW: Pie Chart of Company Sizes ===
+    if company_size_col in filtered_df.columns:
+        st.subheader("🏢 Company Size Distribution")
+        size_counts = filtered_df[company_size_col].dropna().value_counts()
+        fig_size = px.pie(
+            names=size_counts.index,
+            values=size_counts.values,
+            title="Company Sizes (Pie Chart)",
+            hole=0.4
+        )
+        fig_size.update_traces(textinfo='percent+label')
+        st.plotly_chart(fig_size, use_container_width=True)
+
+    # === NEW: Focus Area Distribution ===
+    if focus_col in filtered_df.columns:
+        st.subheader("🎯 Main Focus of Companies")
+        focus_counts = filtered_df[focus_col].dropna().value_counts().sort_values(ascending=True)
+        fig_focus = px.bar(
+            x=focus_counts.values,
+            y=focus_counts.index,
+            orientation='h',
+            labels={'x': 'Number of Companies', 'y': 'Focus'},
+            title='Company Focus Areas',
+            text=focus_counts.values
+        )
+        st.plotly_chart(fig_focus, use_container_width=True)
 
 elif page == "Benefits":
     st.header("💬 Greatest Benefits of Using AI")
