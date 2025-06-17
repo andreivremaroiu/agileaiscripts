@@ -1,7 +1,6 @@
 import pandas as pd
 import streamlit as st
 import plotly.express as px
-from io import StringIO
 
 st.set_page_config(layout="wide")
 file_path = 'ai.csv'
@@ -22,7 +21,7 @@ df = load_data(file_path)
 st.title("📊 AI & Agile Strategy Dashboard")
 st.markdown("Explore insights from survey data on AI, Agile, and company strategy.")
 
-# === Sidebar Filters & Navigation ===
+# === Sidebar Filters ===
 st.sidebar.header("🔎 Filters")
 company_size_col = 'What is the size of your company?'
 role_col = 'What is your current role in the company?'
@@ -36,11 +35,7 @@ selected_size = st.sidebar.selectbox("Select Company Size:", options=["All"] + s
 selected_role = st.sidebar.selectbox("Select Role:", options=["All"] + sorted(roles))
 selected_focus = st.sidebar.selectbox("Select Company Focus:", options=["All"] + sorted(focus_areas))
 
-# Sidebar menu for navigation
-page = st.sidebar.radio(
-    "Navigate",
-    options=["Charts", "Benefits", "Challenges", "Raw Data"]
-)
+page = st.sidebar.radio("Navigate", ["Charts", "Benefits", "Challenges", "Raw Data"])
 
 # === Apply Filters ===
 filtered_df = df.copy()
@@ -51,9 +46,9 @@ if selected_role != "All":
 if selected_focus != "All":
     filtered_df = filtered_df[filtered_df[focus_col] == selected_focus]
 
-# === Show content based on sidebar selection ===
+# === Main Page Content ===
 if page == "Charts":
-    # AI Usage in Strategic Planning
+    st.subheader("🧠 AI Usage in Strategic Planning")
     ai_usage_col = 'To what extent is AI currently used in your company’s strategic planning?'
     if ai_usage_col in filtered_df.columns:
         filtered_df[ai_usage_col] = pd.to_numeric(filtered_df[ai_usage_col], errors='coerce')
@@ -68,7 +63,7 @@ if page == "Charts":
         fig1.update_layout(xaxis=dict(dtick=1), yaxis_title="Number of Companies")
         st.plotly_chart(fig1, use_container_width=True)
 
-    # Agile Frameworks Used
+    # Agile Frameworks
     agile_col = 'Which Agile framework(s) does your organization follow?'
     if agile_col in filtered_df.columns:
         frameworks = filtered_df[agile_col].dropna().str.split(',').explode().str.strip()
@@ -98,43 +93,96 @@ if page == "Charts":
         )
         st.plotly_chart(fig3, use_container_width=True)
 
-    # === NEW: Role Distribution Histogram ===
-    if role_col in filtered_df.columns:
-        st.subheader("🔍 Role Distribution in Companies")
-        role_counts = filtered_df[role_col].dropna().value_counts().sort_values(ascending=False)
-        fig_role = px.histogram(
-            filtered_df,
-            x=role_col,
-            category_orders={role_col: role_counts.index.tolist()},
-            title="Role Distribution",
-            labels={role_col: "Role"},
+    # Company Age Distribution (Categorical)
+    age_col = 'How many years has your company been operating?'
+    if age_col in filtered_df.columns:
+        st.subheader("🏗️ Company Age Distribution")
+        age_order = ['Less than 1 year', '1 - 3 years', '4 - 6 years', 'More than 6 years']
+        age_counts = (
+            filtered_df[age_col]
+            .dropna()
+            .astype(str)
+            .value_counts()
+            .reindex(age_order, fill_value=0)
         )
-        fig_role.update_layout(xaxis_title="Role", yaxis_title="Count", xaxis_tickangle=-45)
+        fig_age = px.bar(
+            x=age_counts.index,
+            y=age_counts.values,
+            text=age_counts.values,
+            labels={'x': 'Years Operating', 'y': 'Number of Companies'},
+            title='🏗️ Company Age Distribution'
+        )
+        fig_age.update_layout(xaxis_title="Company Age", yaxis_title="Count")
+        st.plotly_chart(fig_age, use_container_width=True)
+
+    # Frequency of Agile Ceremonies
+    freq_col = 'How often does your team engage in Agile ceremonies (e.g., sprints, stand-ups)?'
+    if freq_col in filtered_df.columns:
+        counts = filtered_df[freq_col].dropna().value_counts()
+        fig4 = px.pie(
+            names=counts.index,
+            values=counts.values,
+            title="🔁 Frequency of Agile Ceremonies",
+            hole=0.4
+        )
+        st.plotly_chart(fig4, use_container_width=True)
+
+    # Strategic Improvement Questions (grouped)
+    st.subheader("📈 Strategic Impact of AI and Agile")
+    impact_questions = {
+        "AI tools improve the quality of strategic decision-making in our company.": "AI Improves Decision-Making",
+        "Agile practices in our company are effectively embedded into strategic planning.": "Agile Embedded in Strategy",
+        "Our organization adapts quickly to change thanks to Agile methodologies.": "Agile Enhances Adaptability",
+        "AI has helped our company respond better to unexpected disruptions (e.g., COVID, tech failures, market shifts).": "AI Helps with Disruptions",
+        "AI integration has improved our ability to make fast strategic adjustments.": "AI Enables Fast Adjustments",
+        "Combining AI and Agile has significantly improved our business adaptability.": "AI + Agile Improves Adaptability"
+    }
+    for col, title in impact_questions.items():
+        if col in filtered_df.columns:
+            counts = filtered_df[col].dropna().astype(str).value_counts().sort_index()
+            fig = px.bar(
+                x=counts.index,
+                y=counts.values,
+                text=counts.values,
+                labels={'x': 'Agreement Level', 'y': 'Responses'},
+                title=title
+            )
+            fig.update_layout(xaxis_tickangle=-45)
+            st.plotly_chart(fig, use_container_width=True)
+
+    # Role Distribution
+    if role_col in filtered_df.columns:
+        role_counts = filtered_df[role_col].dropna().value_counts().sort_values(ascending=False)
+        fig_role = px.bar(
+            x=role_counts.index,
+            y=role_counts.values,
+            title="👤 Role Distribution",
+            labels={'x': 'Role', 'y': 'Count'},
+            text=role_counts.values
+        )
+        fig_role.update_layout(xaxis_tickangle=-45)
         st.plotly_chart(fig_role, use_container_width=True)
 
-    # === NEW: Pie Chart of Company Sizes ===
+    # Company Size Pie
     if company_size_col in filtered_df.columns:
-        st.subheader("🏢 Company Size Distribution")
         size_counts = filtered_df[company_size_col].dropna().value_counts()
         fig_size = px.pie(
             names=size_counts.index,
             values=size_counts.values,
-            title="Company Sizes (Pie Chart)",
-            hole=0.4
+            title="🏢 Company Sizes",
+            hole=0.3
         )
-        fig_size.update_traces(textinfo='percent+label')
         st.plotly_chart(fig_size, use_container_width=True)
 
-    # === NEW: Focus Area Distribution ===
+    # Focus Areas Bar
     if focus_col in filtered_df.columns:
-        st.subheader("🎯 Main Focus of Companies")
         focus_counts = filtered_df[focus_col].dropna().value_counts().sort_values(ascending=True)
         fig_focus = px.bar(
             x=focus_counts.values,
             y=focus_counts.index,
             orientation='h',
             labels={'x': 'Number of Companies', 'y': 'Focus'},
-            title='Company Focus Areas',
+            title='🎯 Company Focus Areas',
             text=focus_counts.values
         )
         st.plotly_chart(fig_focus, use_container_width=True)
@@ -162,11 +210,5 @@ elif page == "Challenges":
 elif page == "Raw Data":
     st.header("📄 Filtered Data Table")
     st.dataframe(filtered_df)
-
     csv_data = filtered_df.to_csv(index=False).encode('utf-8')
-    st.download_button(
-        label="📥 Download CSV",
-        data=csv_data,
-        file_name='filtered_data.csv',
-        mime='text/csv'
-    )
+    st.download_button("📥 Download CSV", data=csv_data, file_name='filtered_data.csv', mime='text/csv')
