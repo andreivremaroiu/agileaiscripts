@@ -5,7 +5,6 @@ import plotly.express as px
 st.set_page_config(layout="wide")
 file_path = 'ai.csv'
 
-# === Load Data ===
 @st.cache_data
 def load_data(path):
     import csv
@@ -21,7 +20,6 @@ df = load_data(file_path)
 st.title("📊 AI & Agile Strategy Dashboard")
 st.markdown("Explore insights from survey data on AI, Agile, and company strategy.")
 
-# === Sidebar Filters ===
 st.sidebar.header("🔎 Filters")
 company_size_col = 'What is the size of your company?'
 role_col = 'What is your current role in the company?'
@@ -37,7 +35,6 @@ selected_focus = st.sidebar.selectbox("Select Company Focus:", options=["All"] +
 
 page = st.sidebar.radio("Navigate", ["Charts", "Benefits", "Challenges", "Raw Data"])
 
-# === Apply Filters ===
 filtered_df = df.copy()
 if selected_size != "All":
     filtered_df = filtered_df[filtered_df[company_size_col] == selected_size]
@@ -46,7 +43,6 @@ if selected_role != "All":
 if selected_focus != "All":
     filtered_df = filtered_df[filtered_df[focus_col] == selected_focus]
 
-# === Main Page Content ===
 if page == "Charts":
     st.subheader("🧠 AI Usage in Strategic Planning")
     ai_usage_col = 'To what extent is AI currently used in your company’s strategic planning?'

@@ -1,12 +1,10 @@
 import pandas as pd
 
-# === CONFIGURATION ===
-input_file = "ai_strategy.xlsx"        # Replace with your Excel file
-output_file = "ai.csv"   # Desired name for the CSV file
+input_file = "ai_strategy.xlsx"      
+output_file = "ai.csv"   
 
-# === CONVERT EXCEL TO CSV ===
 try:
-    df = pd.read_excel(input_file)  # Reads the first sheet by default
+    df = pd.read_excel(input_file) 
     df.to_csv(output_file, index=False)
     print(f"✅ Successfully converted '{input_file}' to '{output_file}'.")
 except FileNotFoundError:
